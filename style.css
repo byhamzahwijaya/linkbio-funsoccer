@@ -66,38 +66,12 @@ body {
   align-items: flex-start;
   padding: 6px 16px 24px;
   position: relative;
-  background-image: 
-    radial-gradient(circle at 50% 0%, rgba(217, 4, 41, 0.2) 0%, transparent 60%),
-    radial-gradient(circle at 50% 100%, rgba(37, 211, 102, 0.08) 0%, transparent 50%),
-    linear-gradient(180deg, #07090c 0%, #0c1015 100%);
-  background-attachment: fixed;
+  background-color: #080a0e;
 }
 
-/* Ambient Visual Effects */
+/* Ambient Visual Effects (Disabled to remove gradients) */
 .ambient-glow {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(85px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.glow-top {
-  top: -90px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 320px;
-  height: 260px;
-  background: radial-gradient(circle, rgba(217, 4, 41, 0.24) 0%, transparent 70%);
-}
-
-.glow-bottom {
-  bottom: -110px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 320px;
-  height: 280px;
-  background: radial-gradient(circle, rgba(217, 4, 41, 0.12) 0%, transparent 70%);
+  display: none;
 }
 
 /* Pitch Line Texture Grid */
@@ -142,9 +116,9 @@ body {
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: var(--crimson-vibrant);
-  background: var(--crimson-soft);
-  border: 1px solid rgba(217, 4, 41, 0.25);
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--surface-border);
   padding: 3px 9px;
   border-radius: var(--border-radius-pill);
 }
@@ -194,15 +168,11 @@ body {
 
 .avatar-ring {
   position: absolute;
-  inset: -3px;
+  inset: -2px;
   border-radius: 50%;
-  background: conic-gradient(from 180deg, #d90429, #ef233c, #ff4d6d, #800f2f, #d90429);
-  animation: rotateRing 8s linear infinite;
-  box-shadow: 0 0 20px var(--crimson-glow);
-}
-
-@keyframes rotateRing {
-  to { transform: rotate(360deg); }
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 .avatar-img {
@@ -274,10 +244,10 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(217, 4, 41, 0.15);
+  background: rgba(29, 155, 240, 0.15);
   border-radius: 50%;
   padding: 2px;
-  border: 1px solid rgba(217, 4, 41, 0.3);
+  border: 1px solid rgba(29, 155, 240, 0.4);
 }
 
 .tagline {
@@ -419,31 +389,29 @@ body {
   transform: translateX(3px);
 }
 
-/* --- 1. Featured WhatsApp Card Styling --- */
-.link-wa.featured {
-  background: linear-gradient(135deg, rgba(37, 211, 102, 0.16) 0%, rgba(18, 23, 30, 0.9) 100%);
-  border: 1.5px solid rgba(37, 211, 102, 0.45);
-  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.18);
+/* --- 1. WhatsApp Card Styling (Clean & Elegant) --- */
+.link-wa {
+  background: var(--surface-card);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
 }
 
-.link-wa.featured:hover {
-  border-color: rgba(37, 211, 102, 0.8);
+.link-wa:hover {
+  border-color: rgba(37, 211, 102, 0.7);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.22);
 }
 
-.badge-featured {
-  position: absolute;
-  top: 0;
-  right: 14px;
-  background: linear-gradient(90deg, #d90429, #ef233c);
-  color: #ffffff;
-  font-family: var(--font-display);
-  font-size: 0.63rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  padding: 3px 8px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-  box-shadow: 0 2px 6px rgba(217, 4, 41, 0.45);
+.wa-modal-badge {
+  color: #25D366 !important;
+}
+
+.wa-option-item:hover {
+  background: rgba(37, 211, 102, 0.12) !important;
+  border-color: rgba(37, 211, 102, 0.45) !important;
+}
+
+.wa-option-item:hover .collab-arrow {
+  color: #25D366 !important;
 }
 
 .wa-icon {
@@ -500,16 +468,16 @@ body {
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: #ffffff;
 }
 
 .sponsors-cta {
   font-size: 0.63rem;
   font-weight: 700;
-  color: var(--crimson-vibrant);
+  color: #25D366;
   text-decoration: none;
-  background: rgba(217, 4, 41, 0.12);
-  border: 1px solid rgba(217, 4, 41, 0.3);
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
   padding: 2.5px 8px;
   border-radius: 6px;
   white-space: nowrap;
@@ -519,8 +487,8 @@ body {
 }
 
 .sponsors-cta:hover {
-  background: rgba(217, 4, 41, 0.25);
-  border-color: var(--crimson-vibrant);
+  background: rgba(37, 211, 102, 0.25);
+  border-color: #25D366;
   color: #ffffff;
   transform: translateY(-1px);
 }
@@ -574,11 +542,11 @@ body {
 }
 
 .sponsor-pill:hover {
-  border-color: rgba(217, 4, 41, 0.6);
+  border-color: rgba(37, 211, 102, 0.5);
   color: #ffffff;
-  background: rgba(217, 4, 41, 0.15);
+  background: rgba(37, 211, 102, 0.12);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(217, 4, 41, 0.25);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
 .sponsor-icon {
