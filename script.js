@@ -15,26 +15,35 @@ const CONFIG = {
   spreadsheetId: "1uiHVjtYVmp-K1Jyi8Y_lJXE1Tp_rrINPnKfif6tdZfo",
 };
 
-// 👥 DAFTAR ADMIN WHATSAPP (Sistem Rolling / Rotasi Otomatis)
+// 👥 DAFTAR ADMIN WHATSAPP UMUM (Sistem Random / Acak: Nofal, Tami, Refo)
 const ADMINS = [
-  { name: "Abi", phone: "62895364300631" },
   { name: "Nofal", phone: "6285156378487" },
-  { name: "Tami", phone: "6282331491079" }
+  { name: "Tami", phone: "6282331491079" },
+  { name: "Refo", phone: "6281259561261" }
 ];
 
+// 🎯 KONTAK ADMIN KHUSUS DIVISI
+const SPECIAL_CONTACTS = {
+  sparing: { name: "Iftoni", phone: "6285151799797" },
+  sponsor: { name: "Tami", phone: "6282331491079" },
+  media: { name: "Tami", phone: "6282331491079" }
+};
+
 /**
- * Mengambil admin giliran berikutnya (Rotasi Berkelanjutan)
+ * Mengambil admin secara acak (Random Load-Balance tanpa pengulangan beruntun)
  */
-function getRollingAdmin() {
-  let currentIndex = parseInt(localStorage.getItem("fs_rolling_admin_idx") || "0", 10);
-  if (isNaN(currentIndex) || currentIndex < 0 || currentIndex >= ADMINS.length) {
-    currentIndex = 0;
-  }
-  const selectedAdmin = ADMINS[currentIndex];
-  // Simpan giliran admin berikutnya untuk klik/pengunjung selanjutnya
-  localStorage.setItem("fs_rolling_admin_idx", (currentIndex + 1) % ADMINS.length);
-  return selectedAdmin;
+function getRandomAdmin() {
+  const lastIndex = parseInt(localStorage.getItem("fs_last_admin_idx") || "-1", 10);
+  let newIndex;
+  do {
+    newIndex = Math.floor(Math.random() * ADMINS.length);
+  } while (ADMINS.length > 1 && newIndex === lastIndex);
+  localStorage.setItem("fs_last_admin_idx", newIndex);
+  return ADMINS[newIndex];
 }
+
+// Kompatibilitas fungsi pemanggilan
+const getRollingAdmin = getRandomAdmin;
 
 document.addEventListener("DOMContentLoaded", () => {
   // Elements
@@ -219,19 +228,25 @@ document.addEventListener("DOMContentLoaded", () => {
     btnCloseModal.addEventListener("click", closeCollabModal);
   }
 
-  // Menyesuaikan nomor WA di dalam Modal Kolaborasi dengan rolling admin juga
-  const collabItems = document.querySelectorAll("#collabModal .collab-item");
-  collabItems.forEach(item => {
-    item.addEventListener("click", () => {
-      const admin = getRollingAdmin();
-      const currentHref = item.getAttribute("href") || "";
-      if (currentHref.includes("wa.me/")) {
-        // Ganti nomor admin dengan giliran admin saat ini
-        const updatedHref = currentHref.replace(/wa\.me\/\d+/, `wa.me/${admin.phone}`);
-        item.setAttribute("href", updatedHref);
-      }
-    });
-  });
+  // Menyesuaikan nomor WA di dalam Modal Kolaborasi dengan kontak divisi masing-masing
+  const linkCollabSparing = document.getElementById("linkCollabSparing");
+  const linkCollabSponsor = document.getElementById("linkCollabSponsor");
+  const linkCollabMedia = document.getElementById("linkCollabMedia");
+
+  if (linkCollabSparing) {
+    const msg = encodeURIComponent("Halo Mas Iftoni Fun Soccer Lumajang, tim kami ingin mengajak sparing / fun match. Boleh diskusi ketersediaan jadwal dan lapangannya?");
+    linkCollabSparing.href = `https://wa.me/${SPECIAL_CONTACTS.sparing.phone}?text=${msg}`;
+  }
+
+  if (linkCollabSponsor) {
+    const msg = encodeURIComponent("Halo Admin Tami Fun Soccer Lumajang, saya dari brand/perusahaan ingin berdiskusi mengenai peluang sponsorship atau pasang logo partner.");
+    linkCollabSponsor.href = `https://wa.me/${SPECIAL_CONTACTS.sponsor.phone}?text=${msg}`;
+  }
+
+  if (linkCollabMedia) {
+    const msg = encodeURIComponent("Halo Admin Tami Fun Soccer Lumajang, saya tertarik untuk kolaborasi media partner / peliputan konten match bersama.");
+    linkCollabMedia.href = `https://wa.me/${SPECIAL_CONTACTS.media.phone}?text=${msg}`;
+  }
 
   /**
    * 5. Jadwal & Foto Modal Handlers + Integrasi Google Spreadsheet Live

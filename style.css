@@ -323,31 +323,59 @@ body {
   overflow: hidden;
 }
 
+/* Subtle Left Accent Bar (🔴 Crimson Kuda Semeru) */
+.link-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3.5px;
+  background: var(--crimson-vibrant);
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition: var(--trans-spring);
+}
+
 .link-card:hover {
   transform: translateY(-2px);
   background: var(--surface-card-hover);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.42);
+  border-color: rgba(239, 35, 60, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(239, 35, 60, 0.12);
+}
+
+.link-card:hover::before {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 .link-card:active {
   transform: scale(0.98);
 }
 
-/* Card Icons */
+/* Card Icons — Unified Dark Slate Capsule (Menghilangkan Warna-Warni Tabrakan) */
 .card-icon {
   flex-shrink: 0;
-  width: 46px;
-  height: 46px;
-  border-radius: 13px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #f1f5f9;
   transition: var(--trans-spring);
 }
 
 .link-card:hover .card-icon {
-  transform: scale(1.06);
+  background: rgba(239, 35, 60, 0.14);
+  border-color: var(--crimson-vibrant);
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 14px rgba(239, 35, 60, 0.25);
 }
 
 /* Card Content Typography */
@@ -385,80 +413,8 @@ body {
 }
 
 .link-card:hover .card-arrow {
-  color: var(--text-primary);
-  transform: translateX(3px);
-}
-
-/* --- 0. Jadwal & Foto Card Styling --- */
-.link-schedule {
-  background: var(--surface-card);
-  border: 1px solid rgba(6, 182, 212, 0.35);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
-}
-
-.link-schedule:hover {
-  border-color: rgba(6, 182, 212, 0.75);
-  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.22);
-}
-
-.schedule-icon {
-  background: rgba(6, 182, 212, 0.18);
-  color: #06b6d4;
-  border: 1px solid rgba(6, 182, 212, 0.35);
-}
-
-/* --- 1. WhatsApp Card Styling (Clean & Elegant) --- */
-.link-wa {
-  background: var(--surface-card);
-  border: 1px solid rgba(37, 211, 102, 0.35);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
-}
-
-.link-wa:hover {
-  border-color: rgba(37, 211, 102, 0.7);
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.22);
-}
-
-.wa-modal-badge {
-  color: #25D366 !important;
-}
-
-.wa-option-item:hover {
-  background: rgba(37, 211, 102, 0.12) !important;
-  border-color: rgba(37, 211, 102, 0.45) !important;
-}
-
-.wa-option-item:hover .collab-arrow {
-  color: #25D366 !important;
-}
-
-.wa-icon {
-  background: var(--wa-green);
-  color: #ffffff;
-  box-shadow: 0 3px 12px var(--wa-glow);
-}
-
-/* --- 2. Web Card Styling --- */
-.web-icon {
-  background: rgba(255, 255, 255, 0.08);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.25);
-}
-
-.link-web:hover {
-  border-color: rgba(56, 189, 248, 0.5);
-}
-
-/* --- 3. Kolaborasi Card Styling (Gold / Yellow Accent) --- */
-.collab-icon {
-  background: rgba(245, 158, 11, 0.12);
-  color: #fbbf24;
-  border: 1px solid rgba(245, 158, 11, 0.32);
-  box-shadow: 0 3px 12px rgba(245, 158, 11, 0.15);
-}
-
-.link-collab:hover {
-  border-color: rgba(245, 158, 11, 0.55);
+  color: var(--crimson-vibrant);
+  transform: translateX(4px);
 }
 
 /* ------------------------------------------------------------
@@ -493,11 +449,11 @@ body {
 .sponsors-cta {
   font-size: 0.63rem;
   font-weight: 700;
-  color: #25D366;
+  color: #f8fafc;
   text-decoration: none;
-  background: rgba(37, 211, 102, 0.12);
-  border: 1px solid rgba(37, 211, 102, 0.35);
-  padding: 2.5px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 3px 9px;
   border-radius: 6px;
   white-space: nowrap;
   display: inline-flex;
@@ -506,10 +462,11 @@ body {
 }
 
 .sponsors-cta:hover {
-  background: rgba(37, 211, 102, 0.25);
-  border-color: #25D366;
+  background: var(--crimson-vibrant);
+  border-color: var(--crimson-vibrant);
   color: #ffffff;
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 35, 60, 0.35);
 }
 
 .sponsors-marquee-wrap {
