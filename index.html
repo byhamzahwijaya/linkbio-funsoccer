@@ -79,6 +79,33 @@
     <!-- Main Navigation Action Links -->
     <section class="links-section" aria-label="Menu Tautan">
 
+      <!-- 0. JADWAL MABAR & LINK FOTO (Interactive Modal Opener) -->
+      <button type="button" 
+              class="link-card link-schedule" 
+              id="btnOpenSchedule"
+              aria-haspopup="dialog">
+        <div class="card-icon schedule-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+            <circle cx="8" cy="15" r="1" fill="currentColor"/>
+            <circle cx="12" cy="15" r="1" fill="currentColor"/>
+            <circle cx="16" cy="15" r="1" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="card-content">
+          <h2 class="card-title">Jadwal Mabar & Link Foto</h2>
+          <p class="card-desc">Cek jadwal main terbaru & unduh foto match</p>
+        </div>
+        <div class="card-arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </div>
+      </button>
+
       <!-- 1. WHATSAPP KOMUNITAS (Interactive Modal Opener) -->
       <button type="button" 
               class="link-card link-wa" 
@@ -101,7 +128,7 @@
       </button>
 
       <!-- 2. MENU WEB (Website Resmi) -->
-      <a href="https://funsoccerlumajang.com" 
+      <a href="https://www.funsoccer.my.id/" 
          class="link-card link-web" 
          target="_blank" 
          rel="noopener"
@@ -158,71 +185,87 @@
       </div>
       <div class="sponsors-marquee-wrap">
         <div class="sponsors-track">
-          <!-- Item Sponsor 1 (Bisa diganti <img src="assets/sponsor1.png" alt="Sponsor">) -->
+          <!-- 8 Official Sponsors from assets/sponsor/ -->
           <div class="sponsor-item">
-            <div class="sponsor-pill">
-              <span class="sponsor-icon">⚡</span>
-              <span class="sponsor-name">Slot Sponsor 1</span>
+            <div class="sponsor-pill" title="Bakso Hot">
+              <img src="assets/sponsor/Bakso Hot.jpeg" alt="Bakso Hot" loading="lazy">
             </div>
           </div>
-          <!-- Item Sponsor 2 -->
           <div class="sponsor-item">
-            <div class="sponsor-pill">
-              <span class="sponsor-icon">👕</span>
-              <span class="sponsor-name">Jersey Partner</span>
+            <div class="sponsor-pill" title="NZ Junior">
+              <img src="assets/sponsor/NZ Junior.jpeg" alt="NZ Junior" loading="lazy">
             </div>
           </div>
-          <!-- Item Sponsor 3 -->
           <div class="sponsor-item">
-            <div class="sponsor-pill">
-              <span class="sponsor-icon">💧</span>
-              <span class="sponsor-name">Hydration Partner</span>
+            <div class="sponsor-pill" title="Pelangi Bunda">
+              <img src="assets/sponsor/Pelangi bunda.png" alt="Pelangi Bunda" loading="lazy">
             </div>
           </div>
-          <!-- Item Sponsor 4 -->
           <div class="sponsor-item">
-            <div class="sponsor-pill">
-              <span class="sponsor-icon">📸</span>
-              <span class="sponsor-name">Media Partner</span>
+            <div class="sponsor-pill" title="Poekiz Futsal">
+              <img src="assets/sponsor/Poekiz.jpeg" alt="Poekiz Futsal" loading="lazy">
             </div>
           </div>
-          <!-- Item Sponsor 5 -->
           <div class="sponsor-item">
-            <div class="sponsor-pill">
-              <span class="sponsor-icon">⚽</span>
-              <span class="sponsor-name">Match Ball Partner</span>
+            <div class="sponsor-pill" title="Reksa Accounting">
+              <img src="assets/sponsor/Reksa.jpeg" alt="Reksa Accounting" loading="lazy">
+            </div>
+          </div>
+          <div class="sponsor-item">
+            <div class="sponsor-pill" title="Roti Bian">
+              <img src="assets/sponsor/Roti bian.jpg" alt="Roti Bian" loading="lazy">
+            </div>
+          </div>
+          <div class="sponsor-item">
+            <div class="sponsor-pill" title="Ruby Perfume">
+              <img src="assets/sponsor/Ruby Parfume.jpeg" alt="Ruby Perfume" loading="lazy">
+            </div>
+          </div>
+          <div class="sponsor-item">
+            <div class="sponsor-pill" title="Tebu Manis">
+              <img src="assets/sponsor/Tebu manis.jpeg" alt="Tebu Manis" loading="lazy">
             </div>
           </div>
 
           <!-- Duplikasi untuk Infinite Seamless Marquee Loop -->
           <div class="sponsor-item" aria-hidden="true">
             <div class="sponsor-pill">
-              <span class="sponsor-icon">⚡</span>
-              <span class="sponsor-name">Slot Sponsor 1</span>
+              <img src="assets/sponsor/Bakso Hot.jpeg" alt="" loading="lazy">
             </div>
           </div>
           <div class="sponsor-item" aria-hidden="true">
             <div class="sponsor-pill">
-              <span class="sponsor-icon">👕</span>
-              <span class="sponsor-name">Jersey Partner</span>
+              <img src="assets/sponsor/NZ Junior.jpeg" alt="" loading="lazy">
             </div>
           </div>
           <div class="sponsor-item" aria-hidden="true">
             <div class="sponsor-pill">
-              <span class="sponsor-icon">💧</span>
-              <span class="sponsor-name">Hydration Partner</span>
+              <img src="assets/sponsor/Pelangi bunda.png" alt="" loading="lazy">
             </div>
           </div>
           <div class="sponsor-item" aria-hidden="true">
             <div class="sponsor-pill">
-              <span class="sponsor-icon">📸</span>
-              <span class="sponsor-name">Media Partner</span>
+              <img src="assets/sponsor/Poekiz.jpeg" alt="" loading="lazy">
             </div>
           </div>
           <div class="sponsor-item" aria-hidden="true">
             <div class="sponsor-pill">
-              <span class="sponsor-icon">⚽</span>
-              <span class="sponsor-name">Match Ball Partner</span>
+              <img src="assets/sponsor/Reksa.jpeg" alt="" loading="lazy">
+            </div>
+          </div>
+          <div class="sponsor-item" aria-hidden="true">
+            <div class="sponsor-pill">
+              <img src="assets/sponsor/Roti bian.jpg" alt="" loading="lazy">
+            </div>
+          </div>
+          <div class="sponsor-item" aria-hidden="true">
+            <div class="sponsor-pill">
+              <img src="assets/sponsor/Ruby Parfume.jpeg" alt="" loading="lazy">
+            </div>
+          </div>
+          <div class="sponsor-item" aria-hidden="true">
+            <div class="sponsor-pill">
+              <img src="assets/sponsor/Tebu manis.jpeg" alt="" loading="lazy">
             </div>
           </div>
         </div>
@@ -270,6 +313,67 @@
     </footer>
 
   </main>
+
+  <!-- Interactive Modal: Jadwal Mabar & Link Foto Dokumentasi -->
+  <div class="modal-backdrop" id="schedulePhotoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="scheduleModalTitle">
+    <div class="modal-sheet modal-sheet-wide">
+      <div class="sheet-drag-handle"></div>
+      
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge schedule-modal-badge">AGENDA & DOKUMENTASI</span>
+          <h2 id="scheduleModalTitle">Jadwal & Link Foto</h2>
+        </div>
+        <button type="button" class="close-modal-btn" id="btnCloseScheduleModal" aria-label="Tutup Dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Segmented Tab Switcher (Jadwal Mabar / Link Foto) -->
+      <div class="modal-tab-nav" role="tablist">
+        <button type="button" class="tab-pill active" id="tabScheduleBtn" role="tab" aria-selected="true" aria-controls="panelSchedule">
+          <span>📅 Jadwal Mabar</span>
+        </button>
+        <button type="button" class="tab-pill" id="tabPhotoBtn" role="tab" aria-selected="false" aria-controls="panelPhoto">
+          <span>📸 Link Foto Match</span>
+        </button>
+      </div>
+
+      <div class="modal-body modal-scrollable">
+        
+        <!-- Panel 1: Jadwal Mabar -->
+        <div class="tab-panel active" id="panelSchedule" role="tabpanel" aria-labelledby="tabScheduleBtn">
+          <div class="schedule-container" id="scheduleListContainer">
+            <div class="loading-state">
+              <span class="spinner-dot"></span>
+              <p>Memuat jadwal mabar dari spreadsheet...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Link Foto Match -->
+        <div class="tab-panel" id="panelPhoto" role="tabpanel" aria-labelledby="tabPhotoBtn">
+          <div class="photo-container" id="photoListContainer">
+            <div class="loading-state">
+              <span class="spinner-dot"></span>
+              <p>Memuat link foto dokumentasi...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shortcut Admin untuk Buka Spreadsheet Langsung -->
+        <div class="sheet-admin-link-wrap">
+          <a href="https://docs.google.com/spreadsheets/d/1uiHVjtYVmp-K1Jyi8Y_lJXE1Tp_rrINPnKfif6tdZfo/edit?usp=sharing" 
+             target="_blank" 
+             rel="noopener" 
+             class="sheet-admin-link">
+            <span>⚽ Agenda Sheet</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <!-- Interactive Modal: WhatsApp Selection (Tanya Admin Rolling & Join Grup) -->
   <div class="modal-backdrop" id="waModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">

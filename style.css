@@ -389,6 +389,24 @@ body {
   transform: translateX(3px);
 }
 
+/* --- 0. Jadwal & Foto Card Styling --- */
+.link-schedule {
+  background: var(--surface-card);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+}
+
+.link-schedule:hover {
+  border-color: rgba(6, 182, 212, 0.75);
+  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.22);
+}
+
+.schedule-icon {
+  background: rgba(6, 182, 212, 0.18);
+  color: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.35);
+}
+
 /* --- 1. WhatsApp Card Styling (Clean & Elegant) --- */
 .link-wa {
   background: var(--surface-card);
@@ -526,55 +544,42 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 10px 18px;
-  min-height: 52px;
-  min-width: 150px;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  padding: 6px 14px;
+  min-height: 48px;
+  min-width: 120px;
   transition: var(--trans-spring);
   cursor: pointer;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
 }
 
 .sponsor-pill:hover {
   border-color: rgba(37, 211, 102, 0.5);
-  color: #ffffff;
   background: rgba(37, 211, 102, 0.12);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-.sponsor-icon {
-  font-size: 1.25rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sponsor-name {
-  white-space: nowrap;
 }
 
 /* Image Sponsor Styling Support (Generous display) */
 .sponsor-item img,
 .sponsor-pill img {
   max-height: 36px;
-  max-width: 130px;
+  max-width: 110px;
   width: auto;
+  height: auto;
   object-fit: contain;
-  filter: grayscale(1) opacity(0.85);
-  transition: filter 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  border-radius: 6px;
+  filter: none;
+  opacity: 0.95;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .sponsor-pill:hover img,
 .sponsor-item:hover img {
-  filter: grayscale(0) opacity(1);
-  transform: scale(1.05);
+  opacity: 1;
+  transform: scale(1.06);
 }
 
 /* ------------------------------------------------------------
@@ -758,6 +763,340 @@ body {
   background: rgba(255, 255, 255, 0.16);
   color: #ffffff;
   transform: rotate(90deg);
+}
+
+/* ------------------------------------------------------------
+   Schedule & Photo Modal Components
+   ------------------------------------------------------------ */
+.schedule-modal-badge {
+  color: #06b6d4 !important;
+}
+
+/* Tab Switcher Navigation */
+.modal-tab-nav {
+  display: flex;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 14px;
+  gap: 4px;
+}
+
+.tab-pill {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: var(--trans-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.tab-pill:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tab-pill.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.tab-panel {
+  display: none;
+  animation: fadeInTab 0.2s ease-in-out;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeInTab {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollable modal body for multiple schedules/photos */
+.modal-scrollable {
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 2px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+/* Schedule Card */
+.schedule-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 11px;
+  transition: var(--trans-spring);
+}
+
+.schedule-card:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.schedule-tag {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #06b6d4;
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  padding: 2.5px 8px;
+  border-radius: 6px;
+}
+
+.schedule-time-badge {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 2.5px 8px;
+  border-radius: 6px;
+}
+
+.schedule-date-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.schedule-date {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.schedule-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.schedule-detail-row svg {
+  flex-shrink: 0;
+  color: #06b6d4;
+}
+
+.schedule-desc {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  line-height: 1.35;
+}
+
+.schedule-btn-wrap {
+  margin-top: 9px;
+  display: flex;
+  align-items: center;
+}
+
+.schedule-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.32);
+  border-radius: 8px;
+  color: #25D366;
+  font-size: 0.73rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--trans-spring);
+}
+
+.schedule-wa-btn:hover {
+  background: #25D366;
+  color: #080a0e;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Photo Album Card */
+.photo-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  transition: var(--trans-spring);
+}
+
+.photo-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(6, 182, 212, 0.35);
+}
+
+.photo-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.photo-title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.photo-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.photo-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.photo-btn-open {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(6, 182, 212, 0.18);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--trans-smooth);
+}
+
+.photo-btn-open:hover {
+  background: #06b6d4;
+  color: #080a0e;
+}
+
+.photo-btn-copy {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--trans-smooth);
+}
+
+.photo-btn-copy:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+/* Loading & Empty States */
+.loading-state, .empty-state {
+  text-align: center;
+  padding: 26px 16px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.spinner-dot {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #06b6d4;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Shortcut Admin Link to Google Spreadsheet */
+.sheet-admin-link-wrap {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.sheet-admin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: var(--trans-smooth);
+}
+
+.sheet-admin-link:hover {
+  color: #06b6d4;
+  border-color: rgba(6, 182, 212, 0.35);
+  background: rgba(6, 182, 212, 0.1);
+  transform: translateY(-1px);
 }
 
 .modal-desc {
