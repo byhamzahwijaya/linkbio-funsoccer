@@ -449,15 +449,16 @@ body {
   border-color: rgba(56, 189, 248, 0.5);
 }
 
-/* --- 3. Kolaborasi Card Styling --- */
+/* --- 3. Kolaborasi Card Styling (Gold / Yellow Accent) --- */
 .collab-icon {
-  background: rgba(217, 4, 41, 0.14);
-  color: var(--crimson-vibrant);
-  border: 1px solid rgba(217, 4, 41, 0.3);
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.32);
+  box-shadow: 0 3px 12px rgba(245, 158, 11, 0.15);
 }
 
 .link-collab:hover {
-  border-color: var(--crimson-vibrant);
+  border-color: rgba(245, 158, 11, 0.55);
 }
 
 /* ------------------------------------------------------------
@@ -1125,9 +1126,10 @@ body {
   transition: var(--trans-spring);
 }
 
-.collab-item:hover {
-  background: rgba(217, 4, 41, 0.12);
-  border-color: rgba(217, 4, 41, 0.4);
+.collab-item:hover,
+.collab-item:focus {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.5);
   transform: translateX(3px);
 }
 
@@ -1173,8 +1175,12 @@ body {
 }
 
 .collab-item:hover .collab-arrow {
-  color: var(--crimson-vibrant);
+  color: #fbbf24;
   transform: translateX(3px);
+}
+
+.collab-modal-badge {
+  color: #fbbf24 !important;
 }
 
 /* ------------------------------------------------------------
